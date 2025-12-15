@@ -1,0 +1,280 @@
+/* scratch.css — soccer themed, from-scratch (no Bootstrap)
+   Includes: custom background, font family, font colors, 4+ styles, team color sections
+*/
+
+:root {
+  --bg1: #06121a;
+  --bg2: #0b2433;
+  --text: #eaf6ff;
+  --muted: rgba(234, 246, 255, 0.72);
+  --line: rgba(234, 246, 255, 0.16);
+
+  /* Team colors */
+  --liv-red: #c8102e;
+  --barca-blue: #004d98;
+  --barca-red: #a50044;
+  --fio-purple: #5b2b82;
+
+  --btn: #2bb8ff;
+  --btnText: #04202c;
+}
+
+/* Reset-ish */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg1);
+  background-image:
+    radial-gradient(1000px 500px at 15% 10%, #0f3a57 0%, transparent 55%),
+    radial-gradient(900px 450px at 85% 20%, #0a4b4a 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+  line-height: 1.6;
+}
+
+.container {
+  width: 92vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+  max-width: 80ch;
+}
+
+/* Anchor nav */
+.nav-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.nav-links a {
+  color: var(--btn);
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.back-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Cards / content blocks */
+.card {
+  margin: 16px 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.placeholder {
+  color: rgba(234, 246, 255, 0.9);
+  font-weight: 650;
+}
+
+/* Overview nested list */
+ol.overview-list {
+  margin: 10px 0 0 18px;
+  color: rgba(234, 246, 255, 0.92);
+}
+
+ol.overview-list ul {
+  margin-top: 6px;
+  color: rgba(234, 246, 255, 0.72);
+}
+
+/* Team header row */
+.team-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* Grid for the 4 panels */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Image row */
+.media-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 12px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+.team-img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  display: block;
+}
+
+.media-note {
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.10);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--btn);
+  color: var(--btnText);
+  text-decoration: none;
+  font-weight: 800;
+  border: 0;
+}
+
+.btn:hover {
+  filter: brightness(1.06);
+}
+
+.btn.btn-outline {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+/* Team accent styling */
+.team-liverpool {
+  border-left: 10px solid var(--liv-red);
+}
+
+.team-liverpool .panel {
+  background: linear-gradient(180deg, rgba(200, 16, 46, 0.18), rgba(0, 0, 0, 0.12));
+}
+
+.team-barca {
+  border-left: 10px solid var(--barca-blue);
+}
+
+.team-barca .panel {
+  background: linear-gradient(135deg, rgba(0, 77, 152, 0.18), rgba(165, 0, 68, 0.14));
+}
+
+.team-fiorentina {
+  border-left: 10px solid var(--fio-purple);
+}
+
+.team-fiorentina .panel {
+  background: linear-gradient(180deg, rgba(91, 43, 130, 0.20), rgba(0, 0, 0, 0.12));
+}
+
+/* Embed placeholders */
+.embed-placeholder {
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.10);
+}
+
+/* Video wrapper (no aspect-ratio — works everywhere) */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Footer */
+.footer {
+  margin: 22px 0 40px;
+  text-align: center;
+  color: rgba(234, 246, 255, 0.55);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .media-row {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+.tableau-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}

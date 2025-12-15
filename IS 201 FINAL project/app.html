@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Soccer Match Predictor</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #06121a, #0b2433);
+      color: #eaf6ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: rgba(234,246,255,.75);
+    }
+
+    .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(234,246,255,.18);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+      transition: border-color 0.3s;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 24px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: none;
+      background: #2bb8ff;
+      color: #04202c;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(1.05);
+    }
+
+    .result {
+      margin-top: 24px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .scoreline {
+      margin-top: 6px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .explanation {
+      margin-top: 8px;
+      color: rgba(234,246,255,.75);
+    }
+
+    .back {
+      margin-top: 30px;
+    }
+
+    a {
+      color: #2bb8ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Soccer Match Predictor</h1>
+    <p>
+      Select a team and match conditions to predict a realistic outcome.
+      This app combines team strength, match context, and randomness.
+    </p>
+
+    <div class="card" id="card">
+      <label for="team">Team</label>
+      <select id="team">
+        <option>Barcelona</option>
+        <option>Liverpool</option>
+        <option>Fiorentina</option>
+      </select>
+
+      <label for="opponent">Opponent Strength</label>
+      <select id="opponent">
+        <option value="weak">Weak</option>
+        <option value="average">Average</option>
+        <option value="strong">Strong</option>
+      </select>
+
+      <label for="location">Match Location</label>
+      <select id="location">
+        <option value="home">Home</option>
+        <option value="away">Away</option>
+      </select>
+
+      <button onclick="predict()">Predict Result</button>
+
+      <div class="result" id="result"></div>
+      <div class="scoreline" id="scoreline"></div>
+      <div class="explanation" id="explanation"></div>
+    </div>
+
+    <div class="back">
+      <a href="index.html">← Back to Scratch Page</a>
+    </div>
+  </div>
+
+  <script>
+    function predict() {
+      const team = document.getElementById("team").value;
+      const opponent = document.getElementById("opponent").value;
+      const location = document.getElementById("location").value;
+      const card = document.getElementById("card");
+
+      // Team color styling
+      if (team === "Barcelona") card.style.borderColor = "#004d98";
+      if (team === "Liverpool") card.style.borderColor = "#c8102e";
+      if (team === "Fiorentina") card.style.borderColor = "#5b2b82";
+
+      let score = 0;
+
+      // Base team strength
+      if (team === "Barcelona") score += 2;
+      if (team === "Liverpool") score += 1;
+      if (team === "Fiorentina") score += 0;
+
+      // Opponent difficulty
+      if (opponent === "weak") score += 2;
+      if (opponent === "average") score += 0;
+      if (opponent === "strong") score -= 2;
+
+      // Home advantage
+      if (location === "home") score += 1;
+
+      // Randomness (-1, 0, or +1)
+      const randomness = Math.floor(Math.random() * 3) - 1;
+      score += randomness;
+
+      let resultText = "";
+      let explanationText = "";
+      let teamGoals = 0;
+      let opponentGoals = 0;
+
+      if (score >= 3) {
+        resultText = "Predicted Result: Win";
+        teamGoals = Math.floor(Math.random() * 3) + 2;   // 2–4
+        opponentGoals = Math.floor(Math.random() * 2);   // 0–1
+        explanationText = "Team strength and match conditions strongly favor this matchup.";
+      } else if (score >= 1) {
+        resultText = "Predicted Result: Draw";
+        teamGoals = Math.floor(Math.random() * 2) + 1;    // 1–2
+        opponentGoals = teamGoals;
+        explanationText = "Both teams appear evenly matched given the selected conditions.";
+      } else {
+        resultText = "Predicted Result: Loss";
+        teamGoals = Math.floor(Math.random() * 2);        // 0–1
+        opponentGoals = Math.floor(Math.random() * 3) + 2;// 2–4
+        explanationText = "Opponent strength and match context outweigh team advantages.";
+      }
+
+      document.getElementById("result").textContent = resultText;
+      document.getElementById("scoreline").textContent =
+        "Predicted Score: " + teamGoals + "–" + opponentGoals;
+      document.getElementById("explanation").textContent = explanationText;
+    }
+  </script>
+</body>
+</html>
