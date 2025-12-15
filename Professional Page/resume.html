@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josh Ericksen | Resume</title>
+  <link rel="stylesheet" href="resume.css" />
+</head>
+
+<body>
+  <!-- Top header -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>Josh Ericksen</h1>
+        <p class="tagline">BYU student focused on Business Management and Psychology</p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn" href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <!-- Quick info row -->
+    <section class="card">
+      <div class="grid-3">
+        <div>
+          <p class="label">Location</p>
+          <p class="value">Brigham Young University<br />Provo, UT</p>
+        </div>
+
+        <div>
+          <p class="label">Focus</p>
+          <p class="value">Business Management • Psychology</p>
+        </div>
+
+        <div>
+          <p class="label">Email</p>
+          <p class="value">jge2004@byu.edu</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="card">
+      <h2>Summary</h2>
+      <p>
+        Motivated student with experience in coursework and projects involving Excel modeling, Tableau dashboards,
+        and basic web development. Interested in roles that blend business problem-solving with data.
+      </p>
+    </section>
+
+    <!-- Two-column layout -->
+    <div class="two-col">
+      <!-- Left column -->
+      <div class="stack">
+        <section class="card">
+          <h2>Education</h2>
+
+          <div class="item">
+            <div class="item-top">
+              <h3>Brigham Young University</h3>
+              <span class="meta">Provo, UT</span>
+            </div>
+            <p class="meta">B.S. (in progress) — <strong>Business Management</strong> · <span>Spring 2028</span></p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="item">
+            <div class="item-top">
+              <h3>Northern Virginia Community College (NOVA)</h3>
+              <span class="meta">2022 – 2023</span>
+            </div>
+            <p class="meta"><strong>GPA:</strong> 4.0</p>
+          </div>
+           <div class="divider"></div>
+
+          <div class="item">
+            <div class="item-top">
+              <h3>Loudoun Valley High School (LVHS)</h3>
+              <span class="meta">2019 – 2023</span>
+            </div>
+            <p class="meta"><strong>GPA:</strong> 4.37</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Experience</h2>
+          <p class="note">
+            <br>Network Technician at BYU Office of Information Technology  — August 2023 to August 2025</br>
+            <br>Recreational Aide at Franklin Park Pool — May 2018 to August 2023</br>
+            <br>Soccer Coach at Revolution Soccer — March 2017 to June 2019</br>
+            <br>Soccer Referee at Various Clubs — August 2016 to June 2019</br>
+          </p>
+
+          <!-- Job Template (copy/paste as needed) -->
+          <div class="item">
+            <div class="item-top">
+              <h3>Documentation — BYU Office of Information Technology</h3> 
+              <span class="meta">August 2025 – Present</span>
+            </div>
+            <p class="meta">Provo, Utah</p>
+            <ul>
+              <li>Proficient in Patch Manager</li>
+              <li>Able to terminate RJ45 and Cat6A cables</li>
+              <li>Proficient in UVExplorer</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right column -->
+      <aside class="stack">
+        <section class="card">
+          <h2>Skills</h2>
+
+          <div class="pill-row">
+            <span class="pill">Excel</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">HTML/CSS</span>
+            <span class="pill">RJ45 Terminations</span>
+            <span class="pill">Cat6A Terminations</span>
+            <span class="pill">Cat5e Terminations</span>
+            <span class="pill">Ethernet Installation</span>
+          </div>
+
+          <div class="mini">
+            <p class="label">Strengths</p>
+            <ul>
+              <li>Clear communication</li>
+              <li>Attention to detail</li>
+              <li>Problem-solving</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Extracurriculars</h2>
+
+          <div class="item">
+            <div class="item-top">
+              <h3>Soccer Manager</h3>
+              <span class="meta">2021 – 2023</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="item">
+            <div class="item-top">
+              <h3>Eagle Scout</h3>
+              <span class="meta">2019</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="item">
+            <div class="item-top">
+              <h3>Soccer Player</h3>
+              <span class="meta">2011 – 2020</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Josh Ericksen</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
